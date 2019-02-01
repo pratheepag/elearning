@@ -1,16 +1,23 @@
-package com.booking.bookingmanagement.service;
+package com.learning.learningmanagement.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.booking.bookingmanagement.model.Packages;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-public interface PackageService {
-	Packages save(Packages packages);
+//import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 
-	List<Packages> findAllPackages();
+import com.learning.learningmanagement.model.Activity;
+
+public interface ActivityService {
+	Activity save(Activity activity);
+
+	List<Activity> findAllActivity();
 	
 	void delete(Long id);
 	
-	Optional<Packages> findPackage(Long id);
+	Optional<Activity> findActivity(Long id);
+
+	 Page<Activity> findAll(org.springframework.data.domain.Pageable pageable);
 }

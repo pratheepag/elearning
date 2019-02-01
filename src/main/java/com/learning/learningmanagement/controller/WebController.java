@@ -1,4 +1,4 @@
-package com.booking.bookingmanagement.controller;
+package com.learning.learningmanagement.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

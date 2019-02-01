@@ -1,13 +1,13 @@
-package com.booking.bookingmanagement;
+package com.learning.learningmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookingManagementApplication {
+public class LearningManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookingManagementApplication.class, args);
+		SpringApplication.run(LearningManagementApplication.class, args);
 	}
 
 }

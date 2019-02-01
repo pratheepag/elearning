@@ -1,39 +1,55 @@
-package com.booking.bookingmanagement.service;
+package com.learning.learningmanagement.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+//import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.booking.bookingmanagement.model.Packages;
-import com.booking.bookingmanagement.repository.PackageRepository;
+import com.learning.learningmanagement.model.Activity;
+import com.learning.learningmanagement.repository.ActivityRepository;
 
-@Service("packageService")
-public class PackageServiceImpl implements PackageService {
+@Service("activityService")
+public class ActivityServiceImpl implements ActivityService {
 
 	@Autowired
-	private PackageRepository packageRepository;
+	private ActivityRepository activityRepository;
 	
-	public Packages save(Packages packages) {
+	public Activity save(Activity activity) {
 		// TODO Auto-generated method stub
-		packageRepository.saveAndFlush(packages);
+		activityRepository.saveAndFlush(activity);
 		return null;
 	}
 
-	public List<Packages> findAllPackages() {
+	/*public List<Packages> findAllPackages() {
 		// TODO Auto-generated method stub
 		return packageRepository.findAll();
 	}
-
+*/
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		packageRepository.deleteById(id); 
+		activityRepository.deleteById(id); 
 	}
 
-	public Optional<Packages> findPackage(Long id) {
+	public Optional<Activity> findActivity(Long id) {
 		// TODO Auto-generated method stub
-		return packageRepository.findById(id);
+		return activityRepository.findById(id);
+	}
+
+	@Override
+	public Page<Activity> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return activityRepository.findAll(pageable);
+	
+	}
+
+	@Override
+	public List<Activity> findAllActivity() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

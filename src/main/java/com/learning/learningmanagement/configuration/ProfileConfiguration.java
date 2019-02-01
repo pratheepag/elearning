@@ -1,4 +1,4 @@
-package com.booking.bookingmanagement.configuration;
+package com.learning.learningmanagement.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

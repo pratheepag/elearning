@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table{width:100%;}
+table td, table th { border: 1px solid grey;}
+table th { background: #eee;}
+.pagination-div{user-select: none;}
+.pagination-div span{border-radius:3px;border:1px solid #999;
+   padding:5px;margin:10px 0px 0px 10px;display:inline-block}
+span.selected{background:#ccf;}
+</style>
+</head>
+<body>
+<h2>Server Activities</h2>
+<table>
+    <tr>
+    	 <th>File name</th>
+        <th>File Description</th>
+        <th>File Type</th>
+        <th>Uploaded Time</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="item : ${page.content}" >
+		    <td ><p th:text=${item.file_name} /></td>
+		    <td><p th:text=${item.description} /></td>
+		    <td><p th:text=${item.file_type} /></td>
+		    <td><img alt="Image" th:src="@{'/uploads/'+${item.file_name}}" width="50" height="50"/></td>
+		    <td><a th:href="@{'editActivity/'+${item.id}}">Edit</a> | <a th:href="@{'deleteActivity/'+${item.id}}">Delete</a></td>
+		    </tr>
+</table>
+
+<div class="pagination-div">
+    <span th:if="${page.hasPrevious()}">
+        <a th:href="@{/admin/listActivity(page=${page.number-1},size=${page.size})}">Previous</a>
+    </span>
+    <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
+        <span th:if="${page.number == i}" class="selected">[[${i}+1]]</span>
+        <span th:unless="${page.number == i}">
+             <a th:href="@{/admin/listActivity(page=${i},size=${page.size})}">[[${i}+1]]</a>
+        </span>
+    </th:block>
+    <span th:if="${page.hasNext()}">
+        <a th:href="@{/admin/listActivity(page=${page.number+1},size=${page.size})}">Next</a>
+    </span>
+</div>
+</body>
+</html>

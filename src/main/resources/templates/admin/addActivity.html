@@ -46,7 +46,7 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">
-            Add Package Fields
+            Add Learning Material
           </a>
           <ul class="nav">
           </ul>
@@ -56,29 +56,20 @@
     <div class="container">
       <div>
         <h1>
-          Add Package Fields
+          Add Learning Material
         </h1>
         <p>
-          Add your Package Fields.
+          Add your Learning Material
           <br>
           &nbsp;
         </p>
       </div>
-      <form action="#" th:action="@{/admin/addPackage}" th:object="${addPackage}" method="post" enctype="multipart/form-data">
-      		<!-- <ul>
-  				<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
-			</ul>
-			 -->
-			<label for="textinput1">
-	          Enter Name:
-	        </label>	
-	        <input type="text" th:field="*{name}"
-	        		 th:class="${#fields.hasErrors('name')}? fieldError" />
+      <form action="#" th:action="@{/admin/addActivity}" th:object="${activity}" method="post" enctype="multipart/form-data">
+      		<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+			    <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>    
+			</div>
 			
-			<ul>
-  				<li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
-			</ul>
-			<br/>
+			
 			<label for="textinput1">
 	          Enter Description:
 	        </label>	
@@ -89,20 +80,11 @@
   				<li th:each="err : ${#fields.errors('description')}" th:text="${err}" />
 			</ul>
 			<br/>
-			<label for="textinput1">
-	          Enter Price:
-	        </label>	
-			<input type="text" th:field="*{price}"
-	        		 th:class="${#fields.hasErrors('price')}? fieldError" />
 			
-			<ul>
-  				<li th:each="err : ${#fields.errors('price')}" th:text="${err}" />
-			</ul>
-			<br/>
 			<label for="textinput1">
-	          Enter Image:
+	          Enter File:
 	        </label>	
-			 <input type="file" name="image" id="image" />
+			 <input type="file" name="file" id="file" />
 	        		 <!-- th:class="${#fields.hasErrors('file')}? fieldError" --> 
 			
 			<!-- <ul>

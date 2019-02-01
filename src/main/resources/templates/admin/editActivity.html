@@ -65,42 +65,22 @@
         </p>
       </div>
       
-      <form action="#" th:action="@{/admin/editPackage}" th:object="${editPackage}" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="id" th:field="${editPackage.id}" />
-			<label for="textinput1">
-	          Enter Name:
-	        </label>	
-			 <input type="text" th:field="*{name}"
-	        		 th:class="${#fields.hasErrors('name')}? fieldError" />
+      <form action="#" th:action="@{/admin/editActivity}" th:object="${activity}" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" id="id" th:field="${activity.id}" />
 			
-			<ul>
-  				<li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
-			</ul>
-			<br/>
 			<label for="textinput1">
 	          Enter Description:
 	        </label>	
 			<input type="text" th:field="*{description}"
 	        		 th:class="${#fields.hasErrors('description')}? fieldError" />
 			
-			<ul>
-  				<li th:each="err : ${#fields.errors('description')}" th:text="${err}" />
-			</ul>
 			<br/>
-			<label for="textinput1">
-	          Enter Price:
-	        </label>	
-			<input type="text" th:field="*{price}"
-	        		 th:class="${#fields.hasErrors('price')}? fieldError" />
 			
-			<ul>
-  				<li th:each="err : ${#fields.errors('price')}" th:text="${err}" />
-			</ul>
-			<br/>
 			<label for="textinput1">
-	          Enter Image:
-	        </label>	
-			<input type="file" name="image" id="image" />
+	          Enter material:
+	        </label>
+	       <!-- <img alt="Image" th:src="@{'/uploads/'+${packages.image}}" width="50" height="50"/>  -->
+			<input type="file" name="file" id="file" />
 			<br/>
 			<input type="submit" class="btn" value="Submit"/>
 	  </form>
